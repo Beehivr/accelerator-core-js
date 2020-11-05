@@ -11,7 +11,8 @@
     "build:browser": "npm run build:browser-polyfill && npm run build:browser-browserify && rm src/browser-temp.js",
     "build:logversion": "replace '(js-vsol-)(x.y.z)' '$1'$npm_package_version dist/* browser/*",
     "build": "npm run build:node && npm run build:browser && npm run build:logversion",
-    "test": "karma start"
+    "test": "karma start",
+    "postinstall": "npm i && npm run build"
   },
   "keywords": [
     "opentok",
