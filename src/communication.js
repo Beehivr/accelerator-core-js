@@ -80,6 +80,10 @@ class Communication {
       // ^^^ This may already be available through package options
       const container = dom.element(streamContainers('publisher', 'camera'));
       const publisher = OT.initPublisher(container, props, (error) => {
+
+        if(props && props.publisherCreatedCallback) {
+          props.publisherCreatedCallback(error, publisher)
+        }
         error ? reject(error) : resolve(publisher);
       });
     });
